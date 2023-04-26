@@ -26,16 +26,13 @@ app.get('/weather', (request, response) => {
     let dataToSearchQuery = weatherData.find(weather => weather.city_name.toLocaleLowerCase() === searchQuery.toLocaleLowerCase());
     // let dataToLat = weatherData.find(weather => weather.lat === lat);
     // let dataToLon = weatherData.find(weather => weather.lon === lon);
-    let dataToSend = dataToSearchQuery.data.map(dayForecast => new Forecast(dataToSearchQuery));
+    let dataToSend = dataToSearchQuery.data.map(dayForecast => new Forecast(dayForecast));
     response.send(dataToSend);
   } catch (error) {
     next(error);
 
   }
 });
-
-
-
 
 
 
@@ -48,25 +45,7 @@ class Forecast {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.use((error, request, response, next) => {
+app.use((error, request, response,) => {
   response.status(500).send(error.message);
 });
 
