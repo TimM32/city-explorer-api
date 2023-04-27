@@ -17,35 +17,27 @@ app.get('/', (request, response) => {
 
 
 app.get('/weather', (request, response) => {
+  console.log('req',request.query.latitude);
   try {
-    let searchQuery = request.query.searchQuery;
-    console.log('Names !!!', searchQuery);
-    // let lat = request.query.lat;
-    // let lon = request.query.lon;
-
-    let dataToSearchQuery = weatherData.find(weather => weather.city_name.toLocaleLowerCase() === searchQuery.toLocaleLowerCase());
-    // let dataToLat = weatherData.find(weather => weather.lat === lat);
-    // let dataToLon = weatherData.find(weather => weather.lon === lon);
-    let dataToSend = dataToSearchQuery.data.map(dayForecast => new Forecast(dayForecast));
-    response.send(dataToSend);
+    
+    response.send('dataToSend');
   } catch (error) {
     next(error);
-
   }
 });
 
 
 
-class Forecast {
-  constructor(forecastObject){
-    console.log('It seems like its raining: ',forecastObject);
-    this.description = forecastObject.weather.description;
-    this.date = forecastObject.valid_date;
-  }
-}
+// class Forecast {
+//   constructor(forecastObject){
+//     console.log('It seems like its raining: ',forecastObject);
+//     this.description = forecastObject.weather.description;
+//     this.date = forecastObject.valid_date;
+//   }
+// }
 
 
-app.use((error, request, response,) => {
+app.use((error, request, response) => {
   response.status(500).send(error.message);
 });
 
