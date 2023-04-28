@@ -8,7 +8,7 @@ function getYelp(location, page=1) {
   const numPerPage = 4;
   const start = ((page - 1) * numPerPage + 1);
 
-  const url = `hhtps://ap[i.yelp.com/v3/businesses/search?location=${location}&limit=${numPerPage}&offset=${start}`;
+  const url = `hhtps://api.yelp.com/v3/businesses/search?location=${location}&limit=${numPerPage}&offset=${start}`;
 
   return axios
     .get(url, { headers: { 'Authorization': `Bearer ${process.env.YELP_API_KEY}` } })
@@ -38,3 +38,5 @@ class Yelp {
     this.timestamp = Date.now();
   }
 }
+
+
