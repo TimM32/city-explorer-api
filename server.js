@@ -2,7 +2,7 @@
 "use strict";
 const express = require("express");
 require("dotenv").config();
-// let weatherData = require('./data/weather.json');
+let weatherData = require('./data/weather.json');
 // console.log('Data from weather', weatherData);
 const cors = require("cors");
 const axios = require("axios");
@@ -16,7 +16,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("/weather", getWeather);
-// app.get('/movies', getMovies);
+app.get('/movies', getMovies);
 // app.get('/yelp', getYelp);
 
 async function getWeather(request, response) {
@@ -37,20 +37,6 @@ async function getWeather(request, response) {
 
 
 
-
-
-
-
-// app.get('/weather', (request, response) => {
-//   console.log('req',request.query.latitude);
-//   try {
-
-//     response.send('dataToSend');
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
 class Forecast {
   constructor(forecastObject) {
     console.log('CCCCC', forecastObject.day.condition.text);
@@ -60,6 +46,14 @@ class Forecast {
 
   }//constructor
 }//class
+
+
+async function getMovie(request, response) {
+  let searchQuery = request.query.searchQuery;
+  let
+
+  
+}
 
 
 
