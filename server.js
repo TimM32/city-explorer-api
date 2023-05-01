@@ -10,8 +10,8 @@ const app = express();
 app.use(cors());
 
 const getWeather = require('./modules/weather.js');
-const getMovies = require('./modules/movie.js');
-const getYelp = require('./modules/yelp.js');
+const getMovie = require('./modules/movie.js');
+// const getYelp = require('./modules/yelp.js');
 
 const PORT = process.env.PORT || 5005;
 
@@ -20,16 +20,8 @@ app.get('/', (request, response) => {
 });
 
 app.get('/weather', getWeather);
-app.get('/movie', getMovies);
-app.get('/yelp', getYelp);
-
-
-
-
-
-
-
-
+app.get('/movie', getMovie);
+// app.get('/yelp', getYelp);
 
 
 
@@ -43,8 +35,8 @@ app.get('/yelp', getYelp);
 //     });
 // }
 
-// app.use((error, request, response) => {
-//   response.status(500).send(error.message);
-// });
+app.use((error, request, response) => {
+  response.status(500).send(error.message);
+});
 
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
