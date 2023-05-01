@@ -15,4 +15,11 @@ async function getMovies(request, response) {
 }
 
 
-class Movie 
+class Movie {
+    constructor(movieObject) {
+        this.title = movieObject.title;
+        this.overview = movieObject.overview;
+        this.imageUrl = `https://image.tmdb.org/t/p/w500${movieObject.poster_path}`
+        this.releasedOn = movieObject.release.date;
+    }
+}
