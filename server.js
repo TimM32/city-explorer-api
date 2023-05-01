@@ -10,6 +10,8 @@ const app = express();
 app.use(cors());
 
 const getWeather = require('./modules/weather.js');
+const getMovies = require('./modules/movie.js');
+const getYelp = require('./modules/yelp.js');
 
 const PORT = process.env.PORT || 5005;
 
@@ -18,8 +20,8 @@ app.get('/', (request, response) => {
 });
 
 app.get('/weather', getWeather);
-// app.get('/movies', getMovies);
-// app.get('/yelp', yelpHandler);
+app.get('/movie', getMovies);
+app.get('/yelp', getYelp);
 
 
 
