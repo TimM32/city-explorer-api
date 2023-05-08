@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
 'use strict';
 const express = require('express');
 require('dotenv').config();
-// let weatherData = require('./data/weather.json');
-// console.log('Data from weather', weatherData);
+
 const cors = require('cors');
 // const axios = require('axios');
 const app = express();
