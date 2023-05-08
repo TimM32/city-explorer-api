@@ -25,16 +25,6 @@ app.get('/movie', getMovie);
 
 
 
-// function yelphandler(request, response) {
-//   const location = request.query.searchQuery;
-//   yelp(location, request.query.page)
-//     .then(reviews => response.send(reviews))
-//     .catch((error) => {
-//       console.error(error);
-//       response.status(500).send('Apologies, something has gone wrong!');
-//     });
-// }
-
 app.use((error, request, response) => {
   response.status(500).send(error.message);
 });
